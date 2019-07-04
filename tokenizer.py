@@ -1,6 +1,6 @@
 import json
 
-with open("C:\Users\deepi\Desktop\personal\coursera\nlp\Sarcasm_Headlines_Dataset.json",'r') as f:
+with open("/Sarcasm_Headlines_Dataset.json",'r') as f:
     datastore = json.load(f)
 
 
