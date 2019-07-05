@@ -31,6 +31,4 @@ padded = pad_sequences(sequences, padding = 'post')
 print(padded[0])
 print(padded.shape)
 
-# Expected output
-# [  96  176 1158 ...    0    0    0]
-# (2225, 2442)
+
