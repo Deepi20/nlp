@@ -22,3 +22,15 @@ with open("/tmp/bbc-text.csv", 'r') as csvfile:
 
 print(len(sentences))
 print(sentences[0])
+tokenizer = Tokenizer(oov_token = "<OOV>")
+tokenizer.fit_on_texts(sentences)
+word_index = tokenizer.word_index
+print(len(word_index))
+sequences = tokenizer.texts_to_sequences(sentences)
+padded = pad_sequences(sequences, padding = 'post')
+print(padded[0])
+print(padded.shape)
+
+# Expected output
+# [  96  176 1158 ...    0    0    0]
+# (2225, 2442)
