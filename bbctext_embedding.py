@@ -99,4 +99,6 @@ model = tf.keras.Sequential([
 ])
 model.compile(loss='sparse_categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
 model.summary()
+num_epochs = 30
+history = model.fit(train_padded, training_label_seq, epochs=num_epochs, validation_data=(validation_padded, validation_label_seq), verbose=2)
 
