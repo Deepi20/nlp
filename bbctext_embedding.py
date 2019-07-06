@@ -91,4 +91,12 @@ print(validation_label_seq[0])
 print(validation_label_seq[1])
 print(validation_label_seq[2])
 print(validation_label_seq.shape)
+model = tf.keras.Sequential([
+    tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length),
+    tf.keras.layers.GlobalAveragePooling1D(),
+    tf.keras.layers.Dense(24, activation='relu'),
+    tf.keras.layers.Dense(6, activation='softmax')
+])
+model.compile(loss='sparse_categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
+model.summary()
 
