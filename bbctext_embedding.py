@@ -114,3 +114,7 @@ def plot_graphs(history, string):
 plot_graphs(history, "acc")
 plot_graphs(history, "loss")
 
+reverse_word_index = dict([(value, key) for (key, value) in word_index.items()])
+
+def decode_sentence(text):
+    return ' '.join([reverse_word_index.get(i, '?') for i in text])
