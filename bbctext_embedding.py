@@ -122,11 +122,8 @@ e = model.layers[0]
 weights = e.get_weights()[0]
 print(weights.shape) # shape: (vocab_size, embedding_dim)
 
-# Expected output
-# (1000, 16)
-                
+             
 import io
-
 out_v = io.open('vecs.tsv', 'w', encoding='utf-8')
 out_m = io.open('meta.tsv', 'w', encoding='utf-8')
 for word_num in range(1, vocab_size):
