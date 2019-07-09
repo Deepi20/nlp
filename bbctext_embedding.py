@@ -118,3 +118,10 @@ reverse_word_index = dict([(value, key) for (key, value) in word_index.items()])
 
 def decode_sentence(text):
     return ' '.join([reverse_word_index.get(i, '?') for i in text])
+e = model.layers[0]
+weights = e.get_weights()[0]
+print(weights.shape) # shape: (vocab_size, embedding_dim)
+
+# Expected output
+# (1000, 16)
+                
