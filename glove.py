@@ -66,9 +66,6 @@ test_labels = labels[0:split]
 training_labels = labels[split:training_size]
 print(vocab_size)
 print(word_index['i'])
-!wget --no-check-certificate \
-    https://storage.googleapis.com/laurencemoroney-blog.appspot.com/glove.6B.100d.txt \
-    -O /tmp/glove.6B.100d.txt
 embeddings_index = {};
 with open('/tmp/glove.6B.100d.txt') as f:
     for line in f:
