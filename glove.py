@@ -64,3 +64,8 @@ test_sequences = padded[0:split]
 training_sequences = padded[split:training_size]
 test_labels = labels[0:split]
 training_labels = labels[split:training_size]
+print(vocab_size)
+print(word_index['i'])
+# Expected Output
+# 138858
+# 1
