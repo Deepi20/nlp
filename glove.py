@@ -41,3 +41,26 @@ with open("/tmp/training_cleaned.csv") as csvfile:
 print(num_sentences)
 print(len(corpus))
 print(corpus[1])
+sentences=[]
+labels=[]
+random.shuffle(corpus)
+for x in range(training_size):
+    sentences.append(corpus[x][0])
+    labels.append(corpus[x][1])
+
+
+tokenizer = Tokenizer()
+tokenizer.fit_on_texts(sentences)
+
+word_index = tokenizer.word_index
+vocab_size=len(word_index)
+
+sequences = tokenizer.texts_to_sequences(sentences)
+padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+
+split = int(test_portion * training_size)
+
+test_sequences = padded[0:split]
+training_sequences = padded[split:training_size]
+test_labels = labels[0:split]
+training_labels = labels[split:training_size]
