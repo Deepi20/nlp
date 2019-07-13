@@ -67,3 +67,11 @@ training_labels = labels[split:training_size]
 print(vocab_size)
 print(word_index['i'])
 embeddings_index = {};
+with open('/tmp/glove.6B.100d.txt') as f:
+    for line in f:
+        values = line.split();
+        word = values[0];
+        coefs = np.asarray(values[1:], dtype='float32');
+        embeddings_index[word] = coefs;
+
+embeddings_matrix = np.zeros((vocab_size+1, embedding_dim));
