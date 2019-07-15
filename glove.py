@@ -60,22 +60,3 @@ padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, trunc
 
 split = int(test_portion * training_size)
 
-test_sequences = padded[0:split]
-training_sequences = padded[split:training_size]
-test_labels = labels[0:split]
-training_labels = labels[split:training_size]
-print(vocab_size)
-print(word_index['i'])
-embeddings_index = {};
-with open('/tmp/glove.6B.100d.txt') as f:
-    for line in f:
-        values = line.split();
-        word = values[0];
-        coefs = np.asarray(values[1:], dtype='float32');
-        embeddings_index[word] = coefs;
-
-embeddings_matrix = np.zeros((vocab_size+1, embedding_dim));
-for word, i in word_index.items():
-    embedding_vector = embeddings_index.get(word);
-    if embedding_vector is not None:
-        embeddings_matrix[i] = embedding_vector;
